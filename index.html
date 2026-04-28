@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Arquiteturas Back-End</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #e2e8f0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 320px;
+      max-width: 500px;
+      padding: 25px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .mono h2 { color: #f97316; }
+    .micro h2 { color: #22c55e; }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .highlight {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 50px 0 25px;
+      font-size: 1.2rem;
+      color: #94a3b8;
+    }
+
+    .comparison {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .box {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .box:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .box h3 {
+      margin-bottom: 10px;
+    }
+
+    .mono-box h3 { color: #f97316; }
+    .micro-box h3 { color: #22c55e; }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Arquiteturas Back-End</h1>
+
+  <div class="container">
+
+    <div class="card mono">
+      <h2>Monolítico 🍔</h2>
+      <div class="badge">Lanche de Bairro</div>
+
+      <p><strong>Um programa faz tudo</strong></p>
+
+      <ul>
+        <li>Combate</li>
+        <li>Chat</li>
+        <li>Loja</li>
+        <li>Ranking</li>
+        <li>Matchmaking</li>
+      </ul>
+
+      <p class="highlight">TUDO JUNTO</p>
+      <p>Exemplo: Servidor de Minecraft</p>
+
+      <div class="divider">Classes</div>
+      <p>Class Jogador</p>
+      <p>ID / Ação / Item → <span class="highlight">#TUDO AQUI</span></p>
+    </div>
+
+    <div class="card micro">
+      <h2>Microsserviços 🍱</h2>
+      <div class="badge">Praça de alimentação</div>
+
+      <p><strong>Serviços independentes</strong></p>
+
+      <ul>
+        <li>Matchmaking</li>
+        <li>Inventário</li>
+        <li>Loja</li>
+        <li>Chat</li>
+        <li>Histórico</li>
+      </ul>
+
+      <p class="highlight">Separação total</p>
+
+      <div class="divider">Classes</div>
+      <p>Class Ação Jogador</p>
+      <p>Class Combate</p>
+      <p>Class Serviços Inventário</p>
+    </div>
+
+  </div>
+
+  <div class="divider">// Comparação //</div>
+
+  <div class="comparison">
+    <div class="box mono-box">
+      <h3>Monolítico</h3>
+      <p>Users</p>
+      <p>Inventário</p>
+      <p>Ações</p>
+      <p>Chat</p>
+    </div>
+
+    <div class="box micro-box">
+      <h3>Microsserviços</h3>
+      <p>Users</p>
+      <p>Inventário</p>
+      <p>Chat</p>
+    </div>
+  </div>
+
+  <footer>
+    Visual moderno • Glassmorphism • UI atual ✨
+  </footer>
+
+</body>
+</html>
