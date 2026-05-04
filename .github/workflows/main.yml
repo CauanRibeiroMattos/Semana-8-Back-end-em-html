@@ -1,15 +1,22 @@
-on: push: branches: [ "main" ]
+name: Minha Primeira Linha de Montage
 
-jobs: build: runs-on: ubuntu-latest
+on:
+  push:
+    branches: [ main ]
 
-steps: # Baixa o código - name: Baixar código uses: actions/checkout@v3
+jobs:
+   build-e-teste:
+      runs-on: ubuntu-latest
 
- # Instala Python
- - name: Instalar Python
-   uses: actions/setup-python@v4
-   with:
-     python-version: '3.10'
+      steps:
+          - name: 1. Pegar o chassi do carro (código-fonte)
+            uses: actions/checkout@v3
 
- # Executa o programa
- - name: Rodar código
-   run: python seu_arquivo.py
+          - name: 2. Estação de Build (Montagem)
+            run: echo "Construindo o projeto... Verificando se todas as peças se encaixam!"
+
+          - name: 3. Estação de Teste (Controle de Qualidade)
+            run: echo "Rodando os testes automatizados... Verificando se a porta abre e fecha!"
+
+
+
